@@ -38,15 +38,21 @@ Rezultatul final e o aplicație web (frontend + backend pe API-uri). **Noi produ
 
 5 membri, identificați prin inițiale (anonimizat în repository).
 
-| Membru | Rol principal | Etapa deținută |
-|---|---|---|
-| **T** | _de completat_ | _de completat_ |
-| **A** | _de completat_ | _de completat_ |
-| **E** | _de completat_ | _de completat_ |
-| **F** | _de completat_ | _de completat_ |
-| **R** | _de completat_ | _de completat_ |
+| Membru | Rol principal | Ce face concret | Etapa |
+|---|---|---|---|
+| **T** | Inginerie de date | descarcă sursele, scrie parserii pentru bilanțuri, calculează indicatorii de profitabilitate | E1 + E3 |
+| **A** | Calitatea datelor | curăță și normalizează (CUI, CAEN, județ, localitate), ține `surse.md` la zi, raport de acoperire | E2 |
+| **E** | Forță de muncă & context local | INS TEMPO, populație, profilul economic al Galațiului, comparații județene | E4 |
+| **F** | Piețe & benchmark | gap analysis, scor de oportunitate, comparația cu orașele benchmark | E5 |
+| **R** | Raportare & interfață externă | grafice, textul raportului, dicționar de date, legătura cu QA/backend/marketing | E6 |
 
 > Identitățile reale nu se trec în repo. Fiecare membru își asumă contribuția prin inițiala din tabel.
+
+**Reguli de colaborare între roluri:**
+- Fiecare rol e **owner**, nu singurul care poate lucra la etapa lui — dar răspunde de ea.
+- T livră date parsate → A le curăță → E și F le folosesc → R le publică.
+- Nimeni nu modifică formula unui indicator fără să anunțe owner-ul etapei.
+- Când cineva e blocat, anunță în grup; nu stă cu etapa pe loc.
 
 ---
 
@@ -89,14 +95,14 @@ Exemplu: `feat: parser bilanț MF pentru anul 2023`
 
 ## 5. Ce acoperim: întrebările de cercetare
 
-| # | Întrebare | Indicator | Cine |
+| # | Întrebare | Indicator | Owner |
 |---|---|---|---|
-| R1 | Top firme profitabile din RO | profit net, CA, marjă, CAEN, județ | _de completat_ |
-| R2 | Cele mai profitabile domenii | profit agregat + marjă mediană pe diviziune CAEN | _de completat_ |
-| R3 | Ce lipsește în Galați | densitate firme / 1.000 locuitori vs. benchmark | _de completat_ |
-| R4 | Ce ar avea succes în Galați | scor de oportunitate (gap × profitabilitate × forță de muncă) | _de completat_ |
-| R5 | Specificul forței de muncă | structură salariați, salariu mediu, șomaj | _de completat_ |
-| R6 | Comparație orașe | clasament multi-criteriu | _de completat_ |
+| R1 | Top firme profitabile din RO | profit net, CA, marjă, CAEN, județ | **T** |
+| R2 | Cele mai profitabile domenii | profit agregat + marjă mediană pe diviziune CAEN | **T** |
+| R3 | Ce lipsește în Galați | densitate firme / 1.000 locuitori vs. benchmark | **F** |
+| R4 | Ce ar avea succes în Galați | scor de oportunitate (gap × profitabilitate × forță de muncă) | **F** + **E** |
+| R5 | Specificul forței de muncă | structură salariați, salariu mediu, șomaj | **E** |
+| R6 | Comparație orașe | clasament multi-criteriu | **F** |
 
 Orașe benchmark propuse: Iași, Constanța, Brăila, Bacău, Craiova, Cluj-Napoca, Timișoara.
 
@@ -239,14 +245,17 @@ raport/           # materialul scris
 
 | Etapa | Ce facem | Owner | Status |
 |---|---|---|---|
-| E1 | Validare surse, descărcare eșantion, definire schemă | _de completat_ | ⬜ |
-| E2 | Curățare + normalizare CUI/CAEN/localitate | _de completat_ | ⬜ |
-| E3 | Indicatori profitabilitate + topuri | _de completat_ | ⬜ |
-| E4 | Date INS + benchmark orașe | _de completat_ | ⬜ |
-| E5 | Gap analysis + scor de oportunitate | _de completat_ | ⬜ |
-| E6 | Grafice, text raport, predare backend/QA | _de completat_ | ⬜ |
+| E1 | Validare surse, descărcare eșantion, definire schemă | **T** | 🟡 (linkuri confirmate de A) |
+| E2 | Curățare + normalizare CUI/CAEN/localitate | **A** | ⬜ |
+| E3 | Indicatori profitabilitate + topuri | **T** | ⬜ |
+| E4 | Date INS + profil forță de muncă Galați | **E** | ⬜ |
+| E5 | Gap analysis + benchmark orașe + scor oportunitate | **F** | ⬜ |
+| E6 | Grafice, text raport, dicționar de date, predare backend/QA | **R** | ⬜ |
 
 Legendă: ⬜ de început · 🟡 în lucru · ✅ gata · ⛔ blocat
+
+**Dependențe:** E3 are nevoie de E1 → E2 are nevoie de E1 → E5 are nevoie de E2 + E4 → E6 are nevoie de E3 + E5.
+Paralel posibil din start: **E1 (T)** și **E4 (E)** — nu depind una de alta.
 
 ---
 
