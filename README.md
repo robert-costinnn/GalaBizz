@@ -4,11 +4,11 @@
 
 ---
 
-## 1. Contextul produsului
+## 1. Contextul proiectului
 
 **GalaBizz** este o aplicație care prezintă **cele mai profitabile firme din România** și care ajută antreprenorii, investitorii și autoritățile locale să identifice **domeniile insuficient reprezentate** la nivelul unui oraș — punctul de plecare fiind **Galați** — corelând oportunitatea economică cu **specificul forței de muncă locale**. Platforma are capacitatea de a **verifica și de a replica aceeași analiză în alte orașe**, astfel încât concluziile să fie comparabile și reproductibile la nivel național.
 
-### 1.1 Cele trei promisiuni ale produsului
+### 1.1 Cele trei promisiuni ale proiectului
 
 | # | Promisiune către utilizator | Ce înseamnă concret pentru QA |
 |---|---|---|
@@ -29,7 +29,7 @@ Tradus în responsabilități concrete, echipa:
 1. **Apără integritatea datelor.** Niciun indicator financiar nu ajunge în interfață fără a fi validat față de sursa oficială și fără a avea o cale de trasabilitate clară.
 2. **Apără corectitudinea analizei.** „Domeniul X este subreprezentat în Galați” este o concluzie derivată; o tratăm ca pe un calcul critic care trebuie demonstrat, nu presupus.
 3. **Apără comparabilitatea.** Analiza pentru Galați și analiza pentru un alt oraș trebuie să folosească aceleași reguli, aceleași praguri și aceeași semantică — altfel comparația este invalidă.
-4. **Apără încrederea utilizatorului.** Orice eroare vizibilă (un clasament greșit, un total inconsistent, un filtru care „uită” un județ) costă credibilitatea produsului mai mult decât costă un bug de design.
+4. **Apără încrederea utilizatorului.** Orice eroare vizibilă (un clasament greșit, un total inconsistent, un filtru care „uită” un județ) costă credibilitatea proiectului mai mult decât costă un bug de design.
 
 ---
 
@@ -42,7 +42,7 @@ Tradus în responsabilități concrete, echipa:
 | **Testăm ipotezele, nu doar ecranele** | Validăm și logica de business (definiția „profitabil”, pragul de „subreprezentare”), nu doar randarea |
 | **Automatizare unde aduce valoare** | Regresie, contracte API și reguli de calitate a datelor = automatizate; exploratorul rămâne uman |
 | **Calitatea este a echipei, nu a QA** | QA facilitează standardul; Developer, Data și Product răspund împreună de respectarea lui |
-| **Failure is a finding** | Un defect reprodus și documentat este un câștig, nu o vină |
+| **Failure is a finding** | Un defect re și documentat este un câștig, nu o vină |
 
 ---
 
@@ -315,4 +315,4 @@ Aceste elemente trebuie confirmate cu Product / `data-analysis` înainte de a fi
 
 ---
 
-*Document viu — se actualizează la fiecare modificare a definirii produsului sau a strategiei de testare.*
+*Document viu — se actualizează la fiecare modificare a definirii proiectului sau a strategiei de testare.*
